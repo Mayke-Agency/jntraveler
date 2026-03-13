@@ -1,0 +1,2005 @@
+/* File: styles.css*/
+
+:root{
+  --bg: #fbf8f2;
+  --sand: #e7d9c6;
+  --beige: #f6f0e7;
+  --aqua: #6fc7c0;
+  --green: #162d0d;
+
+  --ink: #141414;
+  --muted: rgba(20,20,20,.68);
+
+  --max: 1180px;
+  --gutter: clamp(16px, 4vw, 44px);
+
+  --line: rgba(20,20,20,.16);
+  --line-strong: rgba(20,20,20,.28);
+
+  --font-serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Garamond, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  --font-script: "Bradley Hand", "Segoe Script", "Snell Roundhand", "Apple Chancery", cursive;
+
+  --h1: clamp(2.25rem, 4vw, 4.2rem);
+  --h2: clamp(1.35rem, 2.4vw, 2.15rem);
+  --h3: clamp(1.05rem, 1.4vw, 1.25rem);
+  --body: 1rem;
+  --small: .92rem;
+
+  --btn-h: 46px;
+  --btn-radius: 8px;
+  --ctrl-radius: 10px;
+
+  /* Floating text readability on images */
+  --text-shadow: 0 12px 30px rgba(0,0,0,.38), 0 3px 12px rgba(0,0,0,.24);
+
+  /* Overlay gradient for readability */
+  --overlay-top: rgba(0,0,0,.34);
+  --overlay-mid: rgba(0,0,0,.12);
+  --overlay-bot: rgba(0,0,0,.38);
+}
+
+/* Reset */
+*,
+*::before,
+*::after{ box-sizing: border-box; }
+
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 var(--body)/1.55 var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-align: left;
+}
+
+img{ max-width: 100%; height: auto; display: block; }
+a{ color: inherit; text-decoration: none; }
+p{ margin: 0 0 14px; }
+ul, ol{ margin: 0; padding: 0; list-style: none; }
+fieldset{ border: 0; margin: 0; padding: 0; }
+
+.visually-hidden{
+  position:absolute !important;
+  height:1px; width:1px;
+  overflow:hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+.skip-link{
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  transform: translateY(-140%);
+  transition: transform .18s ease;
+  z-index: 9999;
+}
+.skip-link:focus{ transform: translateY(0); }
+
+/* Type */
+h1{
+  margin: 0 0 12px;
+  font: 500 var(--h1)/1.05 var(--font-serif);
+  letter-spacing: .01em;
+}
+h2{
+  margin: 0 0 10px;
+  font: 500 var(--h2)/1.2 var(--font-sans);
+  letter-spacing: .01em;
+}
+h3{
+  margin: 0 0 8px;
+  font: 500 var(--h3)/1.25 var(--font-sans);
+  letter-spacing: .01em;
+}
+.subhead{
+  max-width: 58ch;
+  color: rgba(255,255,255,.92); /* often used on images */
+}
+
+/* Containers */
+.header-inner,
+.footer-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Header / Nav */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(251,248,242,.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  min-height: 70px;
+}
+
+.brand{
+  display:inline-flex;
+  align-items:baseline;
+  gap: 10px;
+  padding: 10px 0;
+}
+.brand-logo{
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--green);
+  font-size: 1.08rem;
+}
+
+.site-nav .nav-list{
+  display:flex;
+  align-items:center;
+  gap: clamp(10px, 2vw, 22px);
+}
+
+/* Underline hover via ::after */
+.site-nav a{
+  position: relative;
+  font: 600 .86rem/1 var(--font-sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(20,20,20,.82);
+  padding: 10px 6px;
+}
+
+.site-nav a::after{
+  content:"";
+  position:absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  height: 1px;
+  background: rgba(22,45,13,.38);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .16s ease;
+}
+.site-nav a:hover::after{ transform: scaleX(1); }
+.site-nav a[aria-current="page"]::after{
+  transform: scaleX(1);
+  background: rgba(22,45,13,.62);
+}
+
+/* Inquire CTA: full outline box, no underline */
+.site-nav a.nav-cta{
+  padding: 10px 12px;
+  color: var(--green);
+  box-shadow: inset 0 0 0 1px rgba(22,45,13,.70);
+}
+.site-nav a.nav-cta::after{ display:none; }
+.site-nav a.nav-cta:hover{ box-shadow: inset 0 0 0 1px rgba(22,45,13,.95); }
+
+@media (max-width: 820px){
+  .header-inner{ flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+  .site-nav .nav-list{ flex-wrap: wrap; justify-content: flex-end; }
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: var(--btn-h);
+  padding: 0 18px;
+  border-radius: var(--btn-radius);
+  border: none;
+  font: 700 .85rem/1 var(--font-sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .16s ease, opacity .16s ease, background-color .16s ease;
+  white-space: nowrap;
+}
+.btn:active{ transform: translateY(1px); }
+
+.btn-primary{
+  background: var(--green);
+  color: var(--bg);
+}
+.btn-primary:hover{ opacity: .94; }
+
+.btn-secondary{
+  background: rgba(231,217,198,.65);
+  color: var(--green);
+}
+.btn-secondary:hover{ background: rgba(231,217,198,.82); }
+
+/* Main */
+main{ min-height: 60vh; }
+
+/* Full-bleed sections */
+.bleed-section,
+.hero{
+  position: relative;
+  min-height: min(92vh, 860px);
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+}
+
+/* Media */
+.bleed-media,
+.hero-media{
+  position:absolute;
+  inset:0;
+  z-index: 0;
+}
+
+.bleed-media img,
+.hero-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.03) contrast(1.02);
+}
+
+/* Readability overlay gradient */
+.bleed-media::after,
+.hero-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to bottom, var(--overlay-top), var(--overlay-mid) 40%, var(--overlay-bot));
+  z-index: 1;
+}
+
+/* Overlay wrappers: pin to full section height */
+.hero-overlay,
+.bleed-overlay{
+  position: absolute;
+  inset: 0; /* ensures true full-height */
+  z-index: 2;
+  padding: clamp(64px, 7vw, 120px) var(--gutter);
+  display: flex;
+  align-items: flex-start;   /* default: top-ish for non-first sections */
+  justify-content: flex-start;
+}
+
+/* HERO: always centered vertically + horizontally */
+.hero-overlay{
+  align-items: center;
+  justify-content: center;
+}
+
+/* First section of each page: centered vertically + horizontally */
+main > .bleed-section:first-of-type .bleed-overlay,
+main > .hero:first-of-type .hero-overlay{
+  align-items: center;
+  justify-content: center;
+}
+
+main > .bleed-section:first-of-type .bleed-overlay,
+main > .hero:first-of-type .hero-overlay{
+  align-items: center;
+}
+
+/* Floating content blocks (no background/border) stays */
+.hero-content,
+.bleed-content{
+  max-width: var(--max);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* HERO text centered */
+.hero .hero-content{
+  text-align: center;
+}
+
+/* First section on every page: center text too (Travel/Shop/Guides/Hospitality top section) */
+main > .bleed-section:first-of-type .bleed-content{
+  text-align: center;
+}
+
+/* Everything else: left aligned */
+main > .bleed-section:not(:first-of-type) .bleed-content{
+  text-align: left;
+}
+
+/* Text readability */
+.hero-content h1,
+.hero-content h2,
+.hero-content h3,
+.hero-content p,
+.hero-content a,
+.bleed-content h1,
+.bleed-content h2,
+.bleed-content h3,
+.bleed-content p,
+.bleed-content a{
+  text-shadow: var(--text-shadow);
+}
+
+/* Hero centered; other sections left by default */
+.hero .hero-content{
+  text-align: center;
+}
+.hero .hero-actions{
+  justify-content: center;
+}
+
+.bleed-content{
+  text-align: left;
+}
+
+/* Hero actions */
+.hero-actions{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+/* ============================
+   CAROUSEL — STACKED SLIDES
+============================ */
+
+.carousel{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.carousel-viewport{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Track becomes a positioning context (NOT flex) */
+.carousel-track{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Slides are stacked */
+.carousel-slide{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .55s ease;
+}
+
+.carousel-slide.is-active{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ====================================
+   CAROUSEL ARROWS — Clean + Minimal
+==================================== */
+
+.carousel-btn{
+  appearance: none;
+  border: none;
+  background: none;   /* no background */
+  padding: 0;
+  margin: 0;
+
+  font-size: 2.2rem;  /* large elegant arrows */
+  line-height: 1;
+  color: #ffffff;     /* white over image */
+
+  cursor: pointer;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.carousel-btn:hover{
+  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
+.carousel-btn:active{
+  transform: translateY(0);
+}
+
+/* Dots: discreet bullets */
+.carousel-dots{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+.carousel-dot{
+  appearance:none;
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(20,20,20,.42);
+  cursor: pointer;
+  transition: opacity .16s ease, transform .16s ease;
+  opacity: .7;
+}
+.carousel-dot:hover{ opacity: .95; }
+.carousel-dot.is-active{
+  background: rgba(20,20,20,.78);
+  opacity: 1;
+  transform: scale(1.06);
+}
+.carousel-autoplay{ display:none !important; }
+
+.carousel-controls{
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 40px;
+  pointer-events: auto;
+}
+
+.carousel-btn{
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+
+  font-size: 2.2rem;
+  color: #ffffff;
+  cursor: pointer;
+
+  pointer-events: auto;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.carousel-btn:hover{
+  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
+.carousel-dots{
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Shop product grid (kept) */
+.product-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.product-card{
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.12);
+  transition: background-color .16s ease, border-color .16s ease;
+}
+.product-card:hover{
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.30);
+}
+
+.product-link{
+  display:grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+.product-link img{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.product-link p{
+  margin: 0;
+  color: rgba(255,255,255,.86);
+  font-size: var(--small);
+  text-shadow: var(--text-shadow);
+}
+
+/* Benefit list */
+.benefit-list{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.benefit-list li{
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.10);
+}
+.benefit-list p{
+  margin: 0;
+  color: rgba(255,255,255,.86);
+  font-size: var(--small);
+  text-shadow: var(--text-shadow);
+}
+@media (max-width: 780px){
+  .benefit-list{ grid-template-columns: 1fr; }
+}
+
+/* ✅ Forms: elegant clean lines (no boxes) */
+.inquiry-form{
+  display:grid;
+  gap: 16px;
+  margin-top: 18px;
+  max-width: 760px;
+}
+
+legend{
+  font: 600 .85rem/1.2 var(--font-sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.92);
+  text-shadow: var(--text-shadow);
+  margin: 0 0 10px;
+}
+
+.form-row{ display:grid; gap: 8px; }
+
+label{
+  font: 700 .8rem/1.2 var(--font-sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.92);
+  text-shadow: var(--text-shadow);
+}
+
+/* Underline inputs */
+input,
+select,
+textarea{
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,.55);
+  background: transparent;
+  color: rgba(255,255,255,.96);
+  outline: none;
+  border-radius: 0;
+}
+
+/* Make selects look clean across browsers */
+select{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,.90) 50%),
+    linear-gradient(135deg, rgba(255,255,255,.90) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 55%,
+    calc(100% - 9px) 55%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 26px;
+}
+
+textarea{
+  resize: vertical;
+  min-height: 110px;
+  padding-top: 8px;
+}
+
+/* Placeholders */
+input::placeholder,
+textarea::placeholder{
+  color: rgba(255,255,255,.70);
+}
+
+/* Focus */
+input:focus,
+select:focus,
+textarea:focus{
+  border-bottom-color: rgba(111,199,192,.92);
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+}
+
+.form-actions{
+  display:grid;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.form-note{
+  margin: 0;
+  color: rgba(255,255,255,.82);
+  font-size: var(--small);
+  text-shadow: var(--text-shadow);
+}
+
+/* ==============================
+   DIGITAL GUIDES — FULL WIDTH GRID
+============================== */
+
+.guides-grid-section{
+  padding: 16px; /* small space around entire grid */
+  background: var(--bg);
+}
+
+/* Full width grid */
+.guides-grid{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px; /* subtle separation between squares */
+}
+
+/* Square cards */
+.guide-card{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+/* Square cards */
+.guide-card{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+/* Image fills square */
+.guide-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+
+.guide-card:hover img{
+  transform: scale(1.05);
+}
+
+/* Dark overlay for readability */
+.guide-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.28);
+}
+
+/* Centered bold ALL CAPS city name */
+.guide-title{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .guides-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px){
+  .guides-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer */
+.site-footer{
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.footer-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 26px var(--gutter);
+  display:grid;
+  gap: 12px;
+  text-align: center;
+}
+
+.footer-logo{
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.footer-links{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  justify-content: center;
+}
+.footer-links a{
+  font: 700 .78rem/1 var(--font-sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(20,20,20,.75);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.footer-meta{
+  margin: 0;
+  color: rgba(20,20,20,.62);
+  font-size: var(--small);
+}
+.footer-meta a{
+  color: rgba(20,20,20,.78);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.footer-copy{
+  margin: 0;
+  color: rgba(20,20,20,.52);
+  font-size: var(--small);
+}
+
+/* Small device tweaks */
+@media (max-width: 420px){
+  .btn{ width: 100%; }
+  .carousel-controls{ bottom: 12px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .carousel-slide,
+  .guide-card img{ transition: none !important; }
+}
+
+/* ==============================
+   MAYKE DESIGN CREDIT
+============================== */
+
+.mayke-link{
+  display:inline-flex;
+  align-items:center;
+  margin-left:4px;
+}
+
+.mayke-link:hover .mayke-logo{
+  opacity:1;
+}
+
+/* ==============================
+   DESIGN CREDIT (BOTTOM RIGHT)
+============================== */
+
+.site-footer{
+  position: relative;
+}
+
+.footer-credit{
+  position: absolute;
+  right: var(--gutter);
+  bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: .8rem;
+  color: rgba(20,20,20,.55);
+}
+
+.footer-credit a{
+  display: flex;
+  align-items: center;
+}
+
+.mayke-logo{
+  height:22px;
+  width:auto;
+  display:inline-block;
+  opacity:.8;
+  position:relative;       
+  transition:opacity .2s ease;
+}
+
+.footer-credit a:hover .mayke-logo{
+  opacity:1;
+}
+
+/* ========================================
+   FORM SECTIONS — SOLID BACKGROUND
+======================================== */
+
+.form-section{
+  background: var(--beige);
+  color: var(--ink);
+}
+
+/* Remove image + overlay inside form section */
+.form-section .bleed-media{
+  display: none;
+}
+
+.form-section::after{
+  display: none;
+}
+
+/* Make layout behave like normal block (not absolute overlay) */
+.form-section .bleed-overlay{
+  position: relative;
+  inset: auto;
+  min-height: auto;
+  padding: clamp(80px, 8vw, 120px) var(--gutter);
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Remove text shadow inside form section */
+.form-section h1,
+.form-section h2,
+.form-section h3,
+.form-section p,
+.form-section label{
+  text-shadow: none;
+}
+
+/* Elegant underline form styling */
+.inquiry-form{
+  max-width: 720px;
+  margin: 40px auto 0 auto;
+}
+
+.inquiry-form input,
+.inquiry-form select,
+.inquiry-form textarea{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(20,20,20,.35);
+  padding: 12px 0;
+  color: var(--ink);
+}
+
+.inquiry-form input::placeholder,
+.inquiry-form textarea::placeholder{
+  color: rgba(20,20,20,.45);
+}
+
+.inquiry-form input:focus,
+.inquiry-form select:focus,
+.inquiry-form textarea:focus{
+  border-bottom-color: var(--aqua);
+  outline: none;
+}
+
+/* ========================================
+   FORM LABEL FIX — Dark + No Shadow
+======================================== */
+
+.form-section label{
+  color: var(--ink);     /* dark text */
+  text-shadow: none;     /* remove floating shadow */
+}
+
+/* Also remove shadow from form headings if needed */
+.form-section h1,
+.form-section h2,
+.form-section h3,
+.form-section p{
+  text-shadow: none;
+  color: var(--ink);
+}
+
+/* ========================================
+   FORM LEGEND 
+======================================== */
+
+.form-section legend{
+  margin: 40px 0 24px 0;   /* space above + below */
+  padding: 0;              /* remove browser padding */
+  
+  font-size: 1rem;         /* slightly larger */
+  font-weight: 400;
+  letter-spacing: .08em;
+  
+  color: var(--ink);
+  text-shadow: none;
+
+  display: block;          /* removes odd inline behavior */
+}
+
+/* =====  HERO STACKING FIX ===== */
+
+.hero-media{
+  z-index: 1;
+}
+
+.hero-overlay{
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-overlay .btn{
+  pointer-events: auto;
+}
+
+/* Lift entire carousel above overlay */
+.hero .carousel{
+  z-index: 3;
+}
+
+.hero .carousel-controls{
+  z-index: 4;
+}
+
+/* ====================================
+   GLOBAL FILM GRAIN OVERLAY
+==================================== */
+
+/* Create grain texture layer on hero + bleed sections */
+.hero::before,
+.bleed-section::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  /* Subtle grain using SVG noise */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.18'/%3E%3C/svg%3E");
+
+  opacity: 0.25; /* adjust intensity here */
+  mix-blend-mode: overlay;
+}
+
+/* ==============================
+   WHY SECTION — FULL BLEED IMAGE
+============================== */
+
+.why-section{
+  position: relative;
+  min-height: 85vh;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+/* Image layer */
+.why-media{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.why-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content layer */
+.why-content{
+  position: relative;
+  z-index: 2;
+  padding: clamp(80px, 8vw, 140px) var(--gutter);
+}
+
+.why-wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+/* Main section title */
+.why-main-title{
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  font-weight: 500;
+  margin-bottom: 48px;
+  text-align: left;
+  color: #ffffff;
+}
+
+/* Grid layout */
+.why-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(30px, 5vw, 70px);
+}
+
+/* Column title */
+.why-col-title{
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+/* Divider line */
+.why-rule{
+  height: 1px;
+  background: rgba(255,255,255,.6);
+  margin-bottom: 24px;
+}
+
+/* Item layout */
+.why-item{
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+/* Icon */
+.why-icon{
+  width: 26px;
+  height: 26px;
+  color: rgba(255,255,255,.85);
+}
+
+.why-icon svg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Item title */
+.why-item-title{
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+  color: #ffffff;
+}
+
+/* Item description */
+.why-item-desc{
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,.85);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .why-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-hero .bleed-content{
+  text-align: center;
+}
+
+.page-hero .hero-actions{
+  justify-content: center;
+}
+
+.page-hero .subhead{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.page-hero .hero-actions{
+  justify-content: center;
+}
+.page-hero .bleed-content{
+  text-align: center;
+}
+
+/* Align form intro text with centered form */
+.form-section .bleed-content > h2,
+.form-section .bleed-content > p{
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-header .header-inner{
+  max-width: none;
+  margin: 0;
+  padding-left: 50px;
+  padding-right: 10px;
+}
+
+/* ==============================
+   SHOP — Curated favorites 
+============================== */
+
+/* Let the section be at least one screen, but grow if needed */
+.shop-favorites{
+  min-height: 100vh;
+  height: auto;
+  overflow: visible; /* IMPORTANT: prevent bottom row being clipped */
+}
+
+/* Keep background image full-bleed (your existing .bleed-media does this) */
+
+/* Override the global absolute overlay ONLY for this section */
+.shop-favorites .bleed-overlay{
+  position: relative;   /* IMPORTANT: gives the section real height */
+  inset: auto;
+  z-index: 2;
+
+  padding: clamp(28px, 4vw, 56px) var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: keep content width tidy */
+.shop-favorites .bleed-content{
+  max-width: var(--max);
+  width: 100%;
+}
+
+/* Tighten header spacing */
+.shop-favorites .bleed-content h2{ margin: 0 0 8px; }
+.shop-favorites .bleed-content > p{ margin: 0 0 12px; }
+
+/* Grid: sized to fit better without forcing hard cropping */
+.shop-favorites .product-grid{
+  margin-top: 10px;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Make cards more compact so 2 rows fit on most screens */
+.shop-favorites .product-link{
+  padding: 10px;
+  gap: 8px;
+}
+
+.shop-favorites .product-link img{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.shop-favorites .product-link h3{
+  margin: 0;
+  font-size: .95rem;
+}
+
+.shop-favorites .product-link p{
+  margin: 0;
+  font-size: .84rem;
+}
+
+/* Fineprint spacing */
+.shop-favorites .fineprint{
+  margin: 10px 0 0;
+  font-size: .82rem;
+}
+
+/* Smaller widths: 2 columns */
+@media (max-width: 900px){
+  .shop-favorites .product-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Short screens: hide the little card descriptions to avoid overflow */
+@media (max-height: 740px){
+  .shop-favorites .product-link p{ display: none; }
+  .shop-favorites .fineprint{ display: none; }
+}
+
+/* ==============================
+   GUIDE DETAIL PAGES (rome.html, etc.)
+============================== */
+
+.guide-detail{
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* Left image */
+.guide-detail__media{
+  position: relative;
+  overflow: hidden;
+}
+
+.guide-detail__media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right content panel */
+.guide-detail__panel{
+  display: flex;
+  align-items: center;
+  padding: clamp(28px, 5vw, 64px);
+}
+
+.guide-detail__inner{
+  max-width: 520px;
+  width: 100%;
+}
+
+/* Typography */
+.guide-detail__kicker{
+  margin: 0 0 10px;
+  font: 700 .78rem/1 var(--font-sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(20,20,20,.62);
+}
+
+.guide-detail__title{
+  margin: 0 0 14px;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--ink);
+}
+
+.guide-detail__desc{
+  margin: 0 0 18px;
+  color: rgba(20,20,20,.72);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Meta */
+.guide-detail__meta{
+  margin: 0 0 22px;
+  display: grid;
+  gap: 10px;
+  padding: 0;
+}
+
+.guide-detail__row{
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(20,20,20,.14);
+}
+
+.guide-detail__row dt{
+  font: 700 .78rem/1.2 var(--font-sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(20,20,20,.60);
+}
+
+.guide-detail__row dd{
+  margin: 0;
+  color: rgba(20,20,20,.80);
+}
+
+/* Purchase area */
+.guide-detail__purchase{
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.guide-detail__price{
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: .02em;
+  color: var(--ink);
+}
+
+.guide-detail__btn{
+  width: fit-content;
+}
+
+.guide-detail__note{
+  margin: 0;
+  color: rgba(20,20,20,.58);
+  font-size: .92rem;
+  line-height: 1.55;
+}
+
+/* Back link */
+.guide-detail__back{
+  margin: 26px 0 0;
+}
+
+.guide-detail__back a{
+  font: 700 .78rem/1 var(--font-sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(20,20,20,.70);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .guide-detail{
+    grid-template-columns: 1fr;
+  }
+  .guide-detail__media{
+    min-height: 52vh;
+  }
+  .guide-detail__panel{
+    padding: 32px var(--gutter);
+  }
+  .guide-detail__inner{
+    max-width: 720px;
+  }
+}
+
+/* ==============================
+   WHY SECTION — Fit Content Height
+============================== */
+
+.why-section{
+  min-height: auto;      /* remove forced tall height */
+}
+
+/* Make overlay behave like normal flow so height matches content */
+.why-section .bleed-overlay{
+  position: relative;    /* override absolute */
+  inset: auto;
+  padding: clamp(80px, 8vw, 120px) var(--gutter);
+  align-items: flex-start;
+}
+
+/* Keep background image full bleed */
+.why-section .bleed-media{
+  position: absolute;
+  inset: 0;
+}
+
+/* ==============================
+   SHOP FAVORITES — Fit Content Height
+============================== */
+
+.shop-favorites{
+  min-height: auto;   /* remove forced tall height */
+  height: auto;
+}
+
+/* Let overlay control height naturally */
+.shop-favorites .bleed-overlay{
+  position: relative;   /* override absolute positioning */
+  inset: auto;
+  padding: clamp(80px, 8vw, 120px) var(--gutter);
+  align-items: flex-start;
+}
+
+/* Keep background image full bleed */
+.shop-favorites .bleed-media{
+  position: absolute;
+  inset: 0;
+}
+
+/* ==============================
+   FORM CONSENT CHECKBOX
+============================== */
+
+.form-consent{
+  margin-top: 18px;
+}
+
+.checkbox-consent{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: .9rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* Hide default checkbox */
+.checkbox-consent input{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Custom checkbox square */
+.checkbox-box{
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(20,20,20,.45);
+  flex-shrink: 0;
+  margin-top: 2px;
+  position: relative;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+
+/* Checkmark */
+.checkbox-box::after{
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: solid var(--green);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+/* Checked state */
+.checkbox-consent input:checked + .checkbox-box::after{
+  opacity: 1;
+}
+
+/* Hover effect */
+.checkbox-consent:hover .checkbox-box{
+  border-color: var(--green);
+}
+
+/* Text styling */
+.checkbox-text{
+  color: rgba(20,20,20,.72);
+}
+
+.checkbox-text a{
+  color: var(--green);
+  text-decoration: underline;
+  font-weight: 200;
+}
+
+/* Policy / Legal pages */
+
+.policy-section{
+  max-width: 800px;
+  margin: 120px auto;
+  padding: 0 var(--gutter);
+}
+
+.policy-section h1{
+  margin-bottom: 30px;
+}
+
+.policy-section h2{
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.policy-section p{
+  color: rgba(20,20,20,.72);
+  line-height: 1.7;
+}
+
+/* ==============================
+   MOBILE NAV
+============================== */
+
+.nav-toggle{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 28px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span{
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+}
+
+/* Mobile layout */
+@media (max-width: 768px){
+
+  .site-header .header-inner{
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .nav-toggle{
+    display: flex;
+    z-index: 1002;
+    margin-left: auto;
+  }
+
+  .site-nav{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    z-index: 1001;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+  }
+
+  .site-nav.open{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .site-nav .nav-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 20px;
+  }
+}
+
+/* ==============================
+   DESIGN CREDIT (BOTTOM RIGHT)
+============================== */
+
+.site-footer{
+  position: relative;
+}
+
+.footer-credit{
+  position: absolute;
+  right: var(--gutter);
+  bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: .8rem;
+  color: rgba(20,20,20,.55);
+}
+
+.footer-credit a{
+  display: flex;
+  align-items: center;
+}
+
+.mayke-logo{
+  height:24px;
+  width:auto;
+  opacity:.85;
+  transition:opacity .2s ease;
+}
+
+.footer-credit a:hover .mayke-logo{
+  opacity:1;
+}
+
+@media (max-width:768px){
+
+  .footer-credit{
+    position: static;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+}
+
+/* ==============================
+   GENERAL INQUIRY FORM — STACKED EDITORIAL
+============================== */
+
+.general-inquiry-section .inquiry-form{
+  max-width: 720px;
+  margin: 40px auto 0 auto;
+}
+
+.general-inquiry-section .inquiry-form fieldset{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.general-inquiry-section .inquiry-form .form-row{
+  display: block;
+  margin-bottom: 26px;
+}
+
+.general-inquiry-section .inquiry-form label{
+  display:block;
+  margin:0 0 6px 0;   
+  padding:0;
+  text-align:left;
+
+  font:700 .82rem/1.2 var(--font-sans);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+
+  color:var(--ink);
+  text-shadow:none;
+}
+
+.general-inquiry-section .inquiry-form input,
+.general-inquiry-section .inquiry-form select,
+.general-inquiry-section .inquiry-form textarea{
+  display: block;
+  width: 100%;
+  padding: 10px 0 12px;
+  border: none;
+  border-bottom: 1px solid rgba(20,20,20,.30);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.general-inquiry-section .inquiry-form input::placeholder,
+.general-inquiry-section .inquiry-form textarea::placeholder{
+  color: rgba(20,20,20,.42);
+}
+
+.general-inquiry-section .inquiry-form input:focus,
+.general-inquiry-section .inquiry-form select:focus,
+.general-inquiry-section .inquiry-form textarea:focus{
+  border-bottom-color: var(--aqua);
+  outline: none;
+  box-shadow: none;
+}
+
+.general-inquiry-section .inquiry-form textarea{
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* keep select clean */
+.general-inquiry-section .inquiry-form select{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(20,20,20,.75) 50%),
+    linear-gradient(135deg, rgba(20,20,20,.75) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 55%,
+    calc(100% - 9px) 55%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+
+/* more space before the links/questions below */
+.inquiry-links{
+  margin-top: 40px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.inquiry-links p{
+  margin-bottom: 18px;
+  color: rgba(20,20,20,.72);
+  line-height: 1.7;
+}
+
+.inquiry-links a{
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ==============================
+   GENERAL INQUIRY ALIGNMENT FIX
+============================== */
+
+.general-inquiry-section .bleed-content{
+  text-align:left !important;
+}
+
+.general-inquiry-section h2{
+  text-align:left;
+}
+
+.general-inquiry-section legend{
+  text-align:left;
+}
+
+/* ==============================
+   GENERAL INQUIRY — FORM CARD OVER IMAGE
+============================== */
+
+.general-inquiry-section{
+  position: relative;
+  overflow: hidden;
+}
+
+.general-inquiry-section .bleed-media{
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.general-inquiry-section .bleed-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* soft dark overlay so image stays elegant */
+.general-inquiry-section::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.28);
+  z-index: 1;
+}
+
+.general-inquiry-section .bleed-overlay{
+  position: relative;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+}
+
+.general-inquiry-section .bleed-content{
+  text-align: left !important;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* centered card */
+.form-card{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 48px);
+  background: rgba(251,248,242,.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,.16);
+}
+
+/* card heading */
+.form-card h2{
+  text-align: left;
+  margin: 0 0 28px;
+  color: var(--ink);
+}
+
+/* form stays in card */
+.general-inquiry-section .inquiry-form{
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.general-inquiry-section legend{
+  color: var(--ink) !important;
+  text-align: left;
+  text-shadow: none;
+}
+
+.general-inquiry-section label{
+  display: block;
+  margin: 0 0 6px 0;
+  color: var(--ink) !important;
+  text-align: left;
+  text-shadow: none;
+}
+
+.general-inquiry-section .form-row{
+  display: block;
+  margin-bottom: 26px;
+}
+
+.general-inquiry-section input,
+.general-inquiry-section textarea,
+.general-inquiry-section select{
+  width: 100%;
+  padding: 8px 0 10px;
+  border: none;
+  border-bottom: 1px solid rgba(20,20,20,.35) !important;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.general-inquiry-section input::placeholder,
+.general-inquiry-section textarea::placeholder{
+  color: rgba(20,20,20,.45);
+}
+
+.general-inquiry-section input:focus,
+.general-inquiry-section textarea:focus,
+.general-inquiry-section select:focus{
+  border-bottom-color: var(--aqua) !important;
+  outline: none;
+  box-shadow: none;
+}
+
+/* links under form */
+.general-inquiry-section .inquiry-links{
+  margin-top: 56px;
+  text-align: center;
+}
+
+.general-inquiry-section .inquiry-links p{
+  margin-bottom: 16px;
+  color: rgba(20,20,20,.72);
+  line-height: 1.7;
+}
+
+.general-inquiry-section .inquiry-links a{
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ==============================
+   GENERAL INQUIRY — WHITE FORM TEXT
+============================== */
+
+.general-inquiry-section h2,
+.general-inquiry-section legend,
+.general-inquiry-section label{
+  color:#ffffff !important;
+  text-shadow:0 2px 6px rgba(0,0,0,.35);
+}
+
+/* input text */
+.general-inquiry-section input,
+.general-inquiry-section textarea,
+.general-inquiry-section select{
+  color:#ffffff;
+  border-bottom:1px solid rgba(255,255,255,.7) !important;
+}
+
+/* placeholders */
+.general-inquiry-section input::placeholder,
+.general-inquiry-section textarea::placeholder{
+  color:rgba(255,255,255,.65);
+}
+
+/* focus state */
+.general-inquiry-section input:focus,
+.general-inquiry-section textarea:focus,
+.general-inquiry-section select:focus{
+  border-bottom:1px solid #ffffff !important;
+}
+
+/* links under form */
+.general-inquiry-section .inquiry-links p{
+  color:rgba(255,255,255,.9);
+}
+
+.general-inquiry-section .inquiry-links a{
+  color:#ffffff;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+/* ==============================
+   STRONGER FIELD HIGHLIGHT
+============================== */
+
+/* active typing state */
+.general-inquiry-section input:focus,
+.general-inquiry-section textarea:focus{
+  border-bottom:2px solid #ffffff !important;
+  background:rgba(255,255,255,.18);   /* stronger highlight */
+  padding:10px 10px;
+  border-radius:4px;
+  transition:all .2s ease;
+}
+
+/* keep highlight after text is entered */
+.general-inquiry-section input:not(:placeholder-shown),
+.general-inquiry-section textarea:not(:placeholder-shown){
+  background:rgba(255,255,255,.14);
+  border-bottom:2px solid rgba(255,255,255,.95) !important;
+  padding:10px 10px;
+  border-radius:4px;
+}
+
+/* text readability */
+.general-inquiry-section input,
+.general-inquiry-section textarea{
+  color:#ffffff;
+  font-weight:500;
+}
+
+/* label highlight when field active */
+.general-inquiry-section .form-row:focus-within label{
+  color:#ffffff;
+  opacity:1;
+}
+
+/* ==============================
+   FIELD HIGHLIGHT ONLY WHEN ACTIVE
+============================== */
+
+.general-inquiry-section input:focus,
+.general-inquiry-section textarea:focus{
+  background:rgba(255,255,255,.75);
+  color:#141414;
+  border-bottom:2px solid #ffffff !important;
+  padding:12px;
+  border-radius:6px;
+  transition:all .15s ease;
+}
+
+/* active typing state */
+.general-inquiry-section input:focus,
+.general-inquiry-section textarea:focus{
+  background:rgba(255,255,255,.75);
+  color:#141414;
+  border-bottom:2px solid #ffffff !important;
+  padding:12px;
+  border-radius:6px;
+}
+
+/* ==============================
+   AUTOFILL STYLE MATCH
+============================== */
+
+input:-webkit-autofill,
+textarea:-webkit-autofill{
+  -webkit-box-shadow:0 0 0 1000px rgba(255,255,255,.75) inset;
+  -webkit-text-fill-color:#141414;
+  border-bottom:2px solid #ffffff !important;
+}
