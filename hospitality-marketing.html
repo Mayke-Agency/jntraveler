@@ -52,7 +52,7 @@
       <section class="bleed-section page-hero" aria-label="Hospitality hero">
         <div class="bleed-media" aria-hidden="true">
           <img
-            src="assets/images/hotel.jpg"
+            src="assets/images/hotel-door.png"
             alt=""
             width="1920"
             height="1080"
@@ -122,10 +122,28 @@
 
             <form
               class="inquiry-form"
-              action="#"
-              method="post"
+              action="https://formspree.io/f/mreodegb"
+              method="POST"
               autocomplete="on"
             >
+              <input
+                type="hidden"
+                name="form_name"
+                value="Hospitality Inquiry"
+              />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Hospitality Inquiry - JN Traveler"
+              />
+              <input
+                type="text"
+                name="_gotcha"
+                style="display: none"
+                tabindex="-1"
+                autocomplete="off"
+              />
+
               <fieldset>
                 <legend>Contact</legend>
 
@@ -248,7 +266,7 @@
 
               <div class="form-consent">
                 <label class="checkbox-consent">
-                  <input type="checkbox" name="email-consent" required />
+                  <input type="checkbox" name="email_consent" required />
                   <span class="checkbox-box"></span>
 
                   <span class="checkbox-text">
@@ -290,9 +308,11 @@
         </ul>
 
         <p class="footer-meta">
-          <a href="#" aria-label="Instagram (placeholder link)">Instagram</a>
-          <span aria-hidden="true"> · </span>
-          <a href="mailto:hello@jntraveler.com">hello@jntraveler.com</a>
+          <a
+            href="https://www.instagram.com/jaydenicole/?hl=en"
+            aria-label="Instagram (placeholder link)"
+            >Instagram</a
+          >
         </p>
 
         <p class="footer-copy">© <span>2026</span> JN Traveler</p>

@@ -1611,3 +1611,226 @@ textarea:-webkit-autofill {
     transition: none !important;
   }
 }
+
+/* ==============================
+   INQUIRY PAGE – HIGHLIGHTED FORM
+============================== */
+
+.inquiry-highlight {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  padding: 32px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.inquiry-highlight fieldset {
+  margin: 0;
+}
+
+/* ==============================
+   GUIDE DETAIL — COMING SOON
+============================== */
+
+.guide-detail__purchase-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.guide-detail__btn.is-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.guide-detail__btn.is-disabled:hover {
+  opacity: 0.55;
+}
+
+.guide-detail__status {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid rgba(20, 20, 20, 0.18);
+  font: 700 0.72rem/1 var(--font-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(20, 20, 20, 0.68);
+  background: rgba(20, 20, 20, 0.04);
+}
+
+/*SHOPIFY BUTTON STYLING*/
+
+.guide-detail__purchase {
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+  justify-items: start;
+}
+
+.guide-detail__price {
+  margin: 0;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.guide-detail__shopify-button {
+  margin: 0;
+  padding: 0;
+  justify-self: start;
+}
+
+.guide-detail__shopify-button .shopify-buy__product,
+.guide-detail__shopify-button .shopify-buy__btn-wrapper,
+.guide-detail__shopify-button .shopify-buy__btn {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.guide-detail__shopify-button .shopify-buy__product {
+  width: auto !important;
+  max-width: none !important;
+}
+
+.guide-detail__shopify-button .shopify-buy__btn {
+  width: auto !important;
+  display: inline-flex !important;
+}
+
+.guide-detail__note {
+  margin: 0;
+}
+
+/* Shopify button on guide pages */
+.guide-detail__shopify-button .shopify-buy__btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: 46px !important;
+  padding: 0 18px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  background: var(--green) !important;
+  color: var(--bg) !important;
+  font: 700 0.85rem/1 var(--font-sans) !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  text-decoration: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+.guide-detail__shopify-button .shopify-buy__btn:hover {
+  opacity: 0.94 !important;
+  background: var(--green) !important;
+}
+
+.guide-detail__shopify-button .shopify-buy__btn:focus {
+  background: var(--green) !important;
+  outline: none !important;
+}
+
+.guide-detail__shopify-button .shopify-buy__btn-wrapper,
+.guide-detail__shopify-button .shopify-buy__product {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ==============================
+   CONSENT — MATCH FORM STYLE
+============================== */
+
+.form-row--consent {
+  margin-top: 12px;
+}
+
+/* layout */
+.form-row--consent label.checkbox {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  align-items: start;
+
+  /* MATCH your form labels */
+  font: 700 0.8rem/1.4 var(--font-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  /* make it lighter */
+  color: rgba(20, 20, 20, 0.55);
+  text-shadow: none;
+  cursor: pointer;
+}
+
+/* checkbox fix */
+.form-row--consent input[type="checkbox"] {
+  width: 16px !important;
+  height: 16px !important;
+  margin: 3px 0 0 0 !important;
+  padding: 0 !important;
+
+  border: none !important;
+  border-bottom: none !important;
+  background: none !important;
+
+  accent-color: #162d0d;
+}
+
+/* link styling */
+.form-row--consent a {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.form-row--consent a:hover {
+  text-decoration: underline;
+}
+
+.inquiry-links {
+  margin-top: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  max-width: 720px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  align-self: stretch;
+}
+
+.inquiry-links__item {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.inquiry-links--light .inquiry-links__item {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.inquiry-links--light a {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.inquiry-links--light a:hover {
+  text-decoration: underline;
+}

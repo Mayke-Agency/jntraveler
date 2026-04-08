@@ -18,8 +18,11 @@
     <header class="site-header" role="banner">
       <div class="header-inner">
         <a class="brand" href="../index.html" aria-label="JN Traveler home">
-          <span class="brand-logo" aria-hidden="true">JNT</span>
-          <span class="brand-name visually-hidden">JN Traveler</span>
+          <img
+            src="../assets/images/jnt-logo.svg"
+            alt="JN Traveler"
+            class="brand-logo"
+          />
         </a>
 
         <nav class="site-nav" aria-label="Primary navigation">
@@ -83,30 +86,32 @@
             </dl>
 
             <div class="guide-detail__purchase" aria-label="Purchase section">
-              <div class="guide-detail__price" aria-label="Price">$24</div>
+              <div class="guide-detail__price">$24</div>
 
-              <!-- Replace href with your checkout / download link -->
-              <a
-                class="btn btn-primary guide-detail__btn"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Purchase &amp; Download
-              </a>
+              <div class="guide-detail__purchase-row">
+                <button
+                  class="btn btn-primary guide-detail__btn is-disabled"
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                >
+                  Purchase &amp; Download
+                </button>
+
+                <span class="guide-detail__status">Coming Soon</span>
+              </div>
 
               <p class="guide-detail__note">
-                Lorem ipsum dolor sit amet — instant delivery after purchase.
-                For personal use only.
+                This guide is currently in progress and will be available soon.
               </p>
             </div>
 
-            <p class="guide-detail__back">
+             <p class="guide-detail__back">
               <a href="../digital-guides.html#City guides"
                 >← Back to Digital Guides</a
               >
             </p>
-          </div>
+            
         </div>
       </section>
     </main>
@@ -118,20 +123,23 @@
           href="../index.html"
           aria-label="JN Traveler home"
         >
-          <span class="footer-logo" aria-hidden="true">JNT</span>
-          <span class="visually-hidden">JN Traveler</span>
+          <img
+            src="../assets/images/jnt-logo.svg"
+            alt="JN Traveler"
+            class="footer-logo"
+          />
         </a>
 
         <ul class="footer-links" aria-label="Footer links">
-          <li><a href="../travel.html#inquire">Inquire</a></li>
+          <li><a href="../inquiry.html">Inquire</a></li>
           <li><a href="../digital-guides.html">Guides</a></li>
           <li><a href="../shop.html">Shop</a></li>
+          <li><a href="..privacy.html">Privacy</a></li>
+          <li><a href="..terms.html">Terms</a></li>
         </ul>
 
         <p class="footer-meta">
-          <a href="#" aria-label="Instagram (placeholder link)">Instagram</a>
-          <span aria-hidden="true"> · </span>
-          <a href="mailto:hello@jntraveler.com">hello@jntraveler.com</a>
+          <a href="https://www.instagram.com/jaydenicole/?hl=en" aria-label="Instagram">Instagram</a>
         </p>
 
         <p class="footer-copy">© <span id="year">2026</span> JN Traveler</p>

@@ -246,7 +246,25 @@
               below!
             </p>
 
-            <form class="inquiry-form" action="#" method="post">
+            <form
+              class="inquiry-form"
+              action="https://formspree.io/f/xeepdeqn"
+              method="POST"
+            >
+              <input type="hidden" name="form_name" value="Travel Inquiry" />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Travel Inquiry - JN Traveler"
+              />
+              <input
+                type="text"
+                name="_gotcha"
+                style="display: none"
+                tabindex="-1"
+                autocomplete="off"
+              />
+
               <fieldset>
                 <legend>Your details</legend>
 
@@ -384,7 +402,7 @@
 
               <div class="form-consent">
                 <label class="checkbox-consent">
-                  <input type="checkbox" name="email-consent" required />
+                  <input type="checkbox" name="email_consent" required />
                   <span class="checkbox-box"></span>
 
                   <span class="checkbox-text">
@@ -426,9 +444,9 @@
         </ul>
 
         <p class="footer-meta">
-          <a href="#" aria-label="Instagram (placeholder link)">Instagram</a>
-          <span aria-hidden="true"> · </span>
-          <a href="mailto:hello@jntraveler.com">hello@jntraveler.com</a>
+          <a href="@jaydenicole" aria-label="Instagram (placeholder link)"
+            >Instagram</a
+          >
         </p>
 
         <p class="footer-copy">© <span id="year">2026</span> JN Traveler</p>

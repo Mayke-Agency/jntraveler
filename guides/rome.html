@@ -18,8 +18,11 @@
     <header class="site-header" role="banner">
       <div class="header-inner">
         <a class="brand" href="../index.html" aria-label="JN Traveler home">
-          <span class="brand-logo" aria-hidden="true">JNT</span>
-          <span class="brand-name visually-hidden">JN Traveler</span>
+          <img
+            src="../assets/images/jnt-logo.svg"
+            alt="JN Traveler"
+            class="brand-logo"
+          />
         </a>
 
         <nav class="site-nav" aria-label="Primary navigation">
@@ -80,23 +83,230 @@
             </dl>
 
             <div class="guide-detail__purchase" aria-label="Purchase section">
-              <div class="guide-detail__price" aria-label="Price">$24</div>
+              <div class="guide-detail__price">$24</div>
 
-              <!-- Replace href with your checkout / download link -->
-              <a
-                class="btn btn-primary guide-detail__btn"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Purchase &amp; Download
-              </a>
+              <div class="guide-detail__shopify-button">
+                <div id="product-component-1775598027636"></div>
+              </div>
 
               <p class="guide-detail__note">
-                Lorem ipsum dolor sit amet — instant delivery after purchase.
-                For personal use only.
+                Instant digital download after purchase.
               </p>
             </div>
+
+            <script type="text/javascript">
+              /*<![CDATA[*/
+              (function () {
+                var scriptURL =
+                  "https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js";
+                if (window.ShopifyBuy) {
+                  if (window.ShopifyBuy.UI) {
+                    ShopifyBuyInit();
+                  } else {
+                    loadScript();
+                  }
+                } else {
+                  loadScript();
+                }
+
+                function loadScript() {
+                  var script = document.createElement("script");
+                  script.async = true;
+                  script.src = scriptURL;
+                  (
+                    document.getElementsByTagName("head")[0] ||
+                    document.getElementsByTagName("body")[0]
+                  ).appendChild(script);
+                  script.onload = ShopifyBuyInit;
+                }
+
+                function ShopifyBuyInit() {
+                  var client = ShopifyBuy.buildClient({
+                    domain: "ncvtgv-mc.myshopify.com",
+                    storefrontAccessToken: "198e7ee58156baff6a5cb3771d35c4a1",
+                  });
+
+                  ShopifyBuy.UI.onReady(client).then(function (ui) {
+                    ui.createComponent("product", {
+                      id: "10318766211353",
+                      node: document.getElementById(
+                        "product-component-1775598027636",
+                      ),
+                      moneyFormat: "%24%7B%7Bamount%7D%7D",
+                      options: {
+                        product: {
+                          iframe: false,
+                          layout: "horizontal",
+                          contents: {
+                            img: false,
+                            imgWithCarousel: false,
+                            title: false,
+                            price: false,
+                            description: false,
+                            quantity: false,
+                            button: true,
+                            buttonWithQuantity: false,
+                          },
+                          text: {
+                            button: "Purchase & Download",
+                          },
+                          styles: {
+                            product: {
+                              width: "auto",
+                              "max-width": "none",
+                              margin: "0",
+                              padding: "0",
+                            },
+                            button: {
+                              "font-family":
+                                'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif',
+                              "font-size": "13.6px",
+                              "font-weight": "700",
+                              "line-height": "1",
+                              "letter-spacing": "0.14em",
+                              "text-transform": "uppercase",
+                              "padding-top": "0px",
+                              "padding-bottom": "0px",
+                              "padding-left": "18px",
+                              "padding-right": "18px",
+                              height: "46px",
+                              "border-radius": "8px",
+                              border: "none",
+                              "background-color": "#162d0d",
+                              color: "#fbf8f2",
+                              ":hover": {
+                                "background-color": "#162d0d",
+                                opacity: "0.94",
+                              },
+                              ":focus": {
+                                "background-color": "#162d0d",
+                              },
+                            },
+                          },
+                        },
+
+                        productSet: {
+                          styles: {
+                            products: {
+                              margin: "0",
+                            },
+                          },
+                        },
+
+                        modalProduct: {
+                          contents: {
+                            img: false,
+                            imgWithCarousel: true,
+                            button: false,
+                            buttonWithQuantity: true,
+                          },
+                          text: {
+                            button: "Add to cart",
+                          },
+                          styles: {
+                            product: {
+                              "@media (min-width: 601px)": {
+                                "max-width": "100%",
+                                "margin-left": "0px",
+                                "margin-bottom": "0px",
+                              },
+                            },
+                            button: {
+                              "font-family":
+                                'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif',
+                              "font-size": "0.85rem",
+                              "font-weight": "700",
+                              "line-height": "1",
+                              "letter-spacing": "0.14em",
+                              "text-transform": "uppercase",
+                              "padding-top": "0px",
+                              "padding-bottom": "0px",
+                              "padding-left": "18px",
+                              "padding-right": "18px",
+                              height: "46px",
+                              "border-radius": "8px",
+                              border: "none",
+                              "background-color": "#162d0d",
+                              color: "#fbf8f2",
+                              ":hover": {
+                                "background-color": "#162d0d",
+                                opacity: "0.94",
+                              },
+                              ":focus": {
+                                "background-color": "#162d0d",
+                              },
+                            },
+                            quantityInput: {
+                              "font-size": "16px",
+                              "padding-top": "12px",
+                              "padding-bottom": "12px",
+                            },
+                          },
+                        },
+
+                        cart: {
+                          text: {
+                            total: "Subtotal",
+                            button: "Checkout",
+                          },
+                          styles: {
+                            button: {
+                              "font-family":
+                                'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif',
+                              "font-size": "13.6px",
+                              "font-weight": "700",
+                              "line-height": "46px",
+                              "letter-spacing": "0.14em",
+                              "text-transform": "uppercase",
+                              "padding-top": "0px",
+                              "padding-bottom": "0px",
+                              "padding-left": "18px",
+                              "padding-right": "18px",
+                              height: "46px",
+                              "min-height": "46px",
+                              "border-radius": "8px",
+                              border: "none",
+                              "background-color": "#162d0d",
+                              color: "#fbf8f2",
+                              ":hover": {
+                                "background-color": "#162d0d",
+                                opacity: "0.94",
+                              },
+                              ":focus": {
+                                "background-color": "#162d0d",
+                              },
+                            },
+                          },
+                        },
+
+                        toggle: {
+                          styles: {
+                            toggle: {
+                              "font-family":
+                                'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif',
+                              "background-color": "#162d0d",
+                              ":hover": {
+                                "background-color": "#162d0d",
+                                opacity: "0.94",
+                              },
+                              ":focus": {
+                                "background-color": "#162d0d",
+                              },
+                            },
+                            count: {
+                              "font-size": "16px",
+                            },
+                          },
+                        },
+
+                        option: {},
+                      },
+                    });
+                  });
+                }
+              })();
+              /*]]>*/
+            </script>
 
             <p class="guide-detail__back">
               <a href="../digital-guides.html#City guides"
@@ -115,20 +325,27 @@
           href="../index.html"
           aria-label="JN Traveler home"
         >
-          <span class="footer-logo" aria-hidden="true">JNT</span>
-          <span class="visually-hidden">JN Traveler</span>
+          <img
+            src="../assets/images/jnt-logo.svg"
+            alt="JN Traveler"
+            class="footer-logo"
+          />
         </a>
 
         <ul class="footer-links" aria-label="Footer links">
-          <li><a href="../travel.html#inquire">Inquire</a></li>
+          <li><a href="../inquiry.html">Inquire</a></li>
           <li><a href="../digital-guides.html">Guides</a></li>
           <li><a href="../shop.html">Shop</a></li>
+          <li><a href="..privacy.html">Privacy</a></li>
+          <li><a href="..terms.html">Terms</a></li>
         </ul>
 
         <p class="footer-meta">
-          <a href="#" aria-label="Instagram (placeholder link)">Instagram</a>
-          <span aria-hidden="true"> · </span>
-          <a href="mailto:hello@jntraveler.com">hello@jntraveler.com</a>
+          <a
+            href="https://www.instagram.com/jaydenicole/?hl=en"
+            aria-label="Instagram"
+            >Instagram</a
+          >
         </p>
 
         <p class="footer-copy">© <span id="year">2026</span> JN Traveler</p>
