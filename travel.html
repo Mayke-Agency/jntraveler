@@ -2,14 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Travel | JN Traveler</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Travel Planning | JN Traveler</title>
     <meta
       name="description"
-      content="Luxury travel planning with a chic, minimal, European-summer feel."
+      content="Luxury travel planning by JN Traveler with personalized itineraries, insider perks, hotel bookings, transport coordination, and seamless trip support."
     />
     <meta name="theme-color" content="#fbf8f2" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="JN Traveler" />
+    <link rel="canonical" href="https://www.jntraveler.com/travel" />
+
+    <meta property="og:title" content="Travel Planning | JN Traveler" />
+    <meta
+      property="og:description"
+      content="Luxury travel planning with personalized itineraries, insider perks, and seamless trip coordination by JN Traveler."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.jntraveler.com/travel" />
+    <meta
+      property="og:image"
+      content="https://www.jntraveler.com/assets/images/palmtree-beach.jpg"
+    />
+    <meta property="og:site_name" content="JN Traveler" />
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Luxury Travel Planning",
+        "provider": {
+          "@type": "Organization",
+          "name": "JN Traveler",
+          "url": "https://www.jntraveler.com/"
+        },
+        "serviceType": "Travel planning",
+        "url": "https://www.jntraveler.com/travel",
+        "description": "Luxury travel planning with personalized itineraries, insider perks, hotel bookings, and seamless trip coordination."
+      }
+    </script>
   </head>
 
   <body>
@@ -17,27 +53,39 @@
 
     <header class="site-header" role="banner">
       <div class="header-inner">
-        <a class="brand" href="index.html" aria-label="JN Traveler home">
+        <a class="brand" href="/" aria-label="JN Traveler home">
           <img
             src="assets/images/jnt-logo.svg"
-            alt="JN Traveler"
+            alt="JN Traveler logo"
             class="brand-logo"
+            width="180"
+            height="45"
           />
         </a>
 
-        <button class="nav-toggle" aria-label="Toggle navigation">
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="site-navigation"
+          type="button"
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="site-nav" aria-label="Primary navigation">
+        <nav
+          class="site-nav"
+          id="site-navigation"
+          aria-label="Primary navigation"
+        >
           <ul class="nav-list">
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="travel.html" aria-current="page">Travel</a></li>
-            <li><a href="digital-guides.html">Digital Guides</a></li>
-            <li><a href="hospitality-marketing.html">Hospitality</a></li>
-            <li><a class="nav-cta" href="inquiry.html">Inquire</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/travel" aria-current="page">Travel</a></li>
+            <li><a href="/digital-guides">Digital Guides</a></li>
+            <li><a href="/hospitality-marketing">Hospitality</a></li>
+            <li><a class="nav-cta" href="/inquiry">Inquire</a></li>
           </ul>
         </nav>
       </div>
@@ -47,7 +95,7 @@
       <!-- TOP SECTION -->
       <section
         class="bleed-section page-hero"
-        aria-label="Luxury travel planning"
+        aria-labelledby="travel-planning-heading"
       >
         <div class="bleed-media" aria-hidden="true">
           <img
@@ -55,13 +103,14 @@
             alt=""
             width="1920"
             height="1080"
-            loading="lazy"
+            loading="eager"
+            fetchpriority="high"
           />
         </div>
 
         <div class="bleed-overlay">
           <div class="bleed-content">
-            <h1>Book Travel</h1>
+            <h1 id="travel-planning-heading">Book Travel</h1>
             <p class="subhead">
               Take the stress out of your vacation by letting us do all the
               work! As a travel advisor we can use our experience and inside
@@ -76,9 +125,9 @@
 
             <div class="hero-actions" role="group" aria-label="Travel actions">
               <a class="btn btn-primary" href="#inquire">Inquire</a>
-              <a class="btn btn-secondary" href="digital-guides.html"
-                >Explore Guides</a
-              >
+              <a class="btn btn-secondary" href="/digital-guides">
+                Explore Guides
+              </a>
             </div>
           </div>
         </div>
@@ -87,7 +136,7 @@
       <!-- WHY SECTION -->
       <section
         class="bleed-section why-section"
-        aria-label="Why work with a travel advisor"
+        aria-labelledby="why-travel-advisor-heading"
       >
         <div class="bleed-media" aria-hidden="true">
           <img
@@ -102,7 +151,9 @@
         <div class="bleed-overlay">
           <div class="bleed-content">
             <header class="why-header">
-              <h2 class="why-main-title">Why work with a travel advisor</h2>
+              <h2 class="why-main-title" id="why-travel-advisor-heading">
+                Why work with a travel advisor
+              </h2>
             </header>
 
             <div class="why-grid" role="list">
@@ -232,11 +283,11 @@
       <section
         class="bleed-section form-section"
         id="inquire"
-        aria-label="Inquire"
+        aria-labelledby="travel-inquiry-heading"
       >
         <div class="bleed-overlay">
           <div class="bleed-content">
-            <h2>Inquire</h2>
+            <h2 id="travel-inquiry-heading">Inquire</h2>
             <p
               class="subhead"
               style="color: rgba(20, 20, 20, 0.65); text-shadow: none"
@@ -408,7 +459,7 @@
                     I agree to receive occasional emails from JN Traveler
                     including travel inspiration, digital guides, and updates. I
                     can unsubscribe at any time. View the
-                    <a href="privacy.html">Privacy Policy</a>.
+                    <a href="/privacy">Privacy Policy</a>.
                   </span>
                 </label>
               </div>
@@ -426,26 +477,33 @@
 
     <footer class="site-footer" role="contentinfo">
       <div class="footer-inner">
-        <a class="footer-brand" href="index.html" aria-label="JN Traveler home">
+        <a class="footer-brand" href="/" aria-label="JN Traveler home">
           <img
             src="assets/images/jnt-logo.svg"
-            alt="JN Traveler"
+            alt="JN Traveler logo"
             class="footer-logo"
+            width="144"
+            height="36"
           />
         </a>
 
         <ul class="footer-links" aria-label="Footer links">
           <li><a href="#inquire">Inquire</a></li>
-          <li><a href="digital-guides.html">Guides</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
+          <li><a href="/digital-guides">Guides</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
         </ul>
 
         <p class="footer-meta">
-          <a href="@jaydenicole" aria-label="Instagram (placeholder link)"
-            >Instagram</a
+          <a
+            href="https://www.instagram.com/jaydenicole/?hl=en"
+            aria-label="JN Traveler on Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
           >
+            Instagram
+          </a>
         </p>
 
         <p class="footer-copy">© <span id="year">2026</span> JN Traveler</p>
@@ -455,8 +513,10 @@
           <a href="https://maykeagency.com" target="_blank" rel="noopener">
             <img
               src="assets/images/maykeLogoDark.svg"
-              alt="Mayke"
+              alt="Mayke Agency"
               class="mayke-logo"
+              width="96"
+              height="24"
             />
           </a>
         </p>

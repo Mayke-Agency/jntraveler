@@ -2,14 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <title>Digital Guides | JN Traveler</title>
     <meta
       name="description"
-      content="Digital city guides—clean, chic, and instantly downloadable."
+      content="Digital travel guides by JN Traveler featuring curated hotels, restaurants, must-visits, insider tips, and downloadable city guides."
     />
     <meta name="theme-color" content="#162d0d" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="JN Traveler" />
+    <link rel="canonical" href="https://www.jntraveler.com/digital-guides" />
+
+    <meta property="og:title" content="Digital Guides | JN Traveler" />
+    <meta
+      property="og:description"
+      content="Digital travel guides featuring curated hotels, restaurants, must-visits, insider tips, and downloadable city guides."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.jntraveler.com/digital-guides"
+    />
+    <meta
+      property="og:image"
+      content="https://www.jntraveler.com/assets/images/digital-guides.jpg"
+    />
+    <meta property="og:site_name" content="JN Traveler" />
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Digital Guides",
+        "url": "https://www.jntraveler.com/digital-guides"
+      }
+    </script>
   </head>
 
   <body>
@@ -17,31 +49,41 @@
 
     <header class="site-header" role="banner">
       <div class="header-inner">
-        <a class="brand" href="index.html" aria-label="JN Traveler home">
+        <a class="brand" href="/" aria-label="JN Traveler home">
           <img
             src="assets/images/jnt-logo.svg"
-            alt="JN Traveler"
+            alt="JN Traveler logo"
             class="brand-logo"
+            width="180"
+            height="45"
           />
         </a>
 
-        <button class="nav-toggle" aria-label="Toggle navigation">
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="site-navigation"
+          type="button"
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="site-nav" aria-label="Primary navigation">
+        <nav
+          class="site-nav"
+          id="site-navigation"
+          aria-label="Primary navigation"
+        >
           <ul class="nav-list">
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="travel.html">Travel</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/travel">Travel</a></li>
             <li>
-              <a aria-current="page" href="digital-guides.html"
-                >Digital Guides</a
-              >
+              <a aria-current="page" href="/digital-guides"> Digital Guides </a>
             </li>
-            <li><a href="hospitality-marketing.html">Hospitality</a></li>
-            <li><a class="nav-cta" href="inquiry.html">Inquire</a></li>
+            <li><a href="/hospitality-marketing">Hospitality</a></li>
+            <li><a class="nav-cta" href="/inquiry">Inquire</a></li>
           </ul>
         </nav>
       </div>
@@ -49,7 +91,10 @@
 
     <main id="main">
       <!-- Full-bleed hero -->
-      <section class="bleed-section page-hero" aria-label="Digital guides hero">
+      <section
+        class="bleed-section page-hero"
+        aria-labelledby="digital-guides-heading"
+      >
         <div class="bleed-media" aria-hidden="true">
           <img
             src="assets/images/digital-guides.jpg"
@@ -57,12 +102,13 @@
             width="1920"
             height="1080"
             loading="eager"
+            fetchpriority="high"
           />
         </div>
 
         <div class="bleed-overlay">
           <div class="bleed-content">
-            <h1>Digital guides</h1>
+            <h1 id="digital-guides-heading">Digital guides</h1>
             <p class="subhead">
               Use our detailed guides to help book your best, stress free trip.
               They include a list of the best hotels, restaurants, must visits,
@@ -75,18 +121,18 @@
       <!-- Tight grid -->
       <section
         class="guides-grid-section"
-        id="City guides"
+        id="city-guides"
         aria-label="City guides"
       >
         <div class="guides-grid">
           <a
             class="guide-card"
-            href="guides/paris.html"
-            aria-label="Paris guide"
+            href="/guides/paris"
+            aria-label="View Paris guide"
           >
             <img
               src="assets/images/guide-covers/paris.jpg"
-              alt="Paris guide cover image"
+              alt="Paris guide cover featuring a Paris city scene"
               width="1200"
               height="1500"
               loading="lazy"
@@ -94,10 +140,14 @@
             <span class="guide-title">Paris</span>
           </a>
 
-          <a class="guide-card" href="guides/rome.html" aria-label="Rome guide">
+          <a
+            class="guide-card"
+            href="/guides/rome"
+            aria-label="View Rome guide"
+          >
             <img
               src="assets/images/guide-covers/rome.jpg"
-              alt="Rome guide cover image"
+              alt="Rome guide cover featuring a Rome city scene"
               width="1200"
               height="1500"
               loading="lazy"
@@ -107,12 +157,12 @@
 
           <a
             class="guide-card"
-            href="guides/london.html"
-            aria-label="London guide"
+            href="/guides/london"
+            aria-label="View London guide"
           >
             <img
               src="assets/images/guide-covers/london.jpg"
-              alt="London guide cover image"
+              alt="London guide cover featuring a London city scene"
               width="1200"
               height="1500"
               loading="lazy"
@@ -122,12 +172,12 @@
 
           <a
             class="guide-card"
-            href="guides/barcelona.html"
-            aria-label="Barcelona guide"
+            href="/guides/barcelona"
+            aria-label="View Barcelona guide"
           >
             <img
               src="assets/images/guide-covers/barcelona.jpg"
-              alt="Barcelona guide cover image"
+              alt="Barcelona guide cover featuring a Barcelona city scene"
               width="1200"
               height="1500"
               loading="lazy"
@@ -137,12 +187,12 @@
 
           <a
             class="guide-card"
-            href="guides/greece.html"
-            aria-label="Greece guide"
+            href="/guides/greece"
+            aria-label="View Greece guide"
           >
             <img
               src="assets/images/guide-covers/greece.jpg"
-              alt="Greece guide cover image"
+              alt="Greece guide cover featuring a coastal Greece destination"
               width="1200"
               height="1500"
               loading="lazy"
@@ -152,12 +202,12 @@
 
           <a
             class="guide-card"
-            href="guides/mexicocity.html"
-            aria-label="Mexico City guide"
+            href="/guides/mexicocity"
+            aria-label="View Mexico City guide"
           >
             <img
               src="assets/images/guide-covers/mexico-city.jpg"
-              alt="Mexico City guide cover image"
+              alt="Mexico City guide cover featuring a Mexico City destination scene"
               width="1200"
               height="1500"
               loading="lazy"
@@ -167,12 +217,12 @@
 
           <a
             class="guide-card"
-            href="guides/bahamas.html"
-            aria-label="Bahamas guide"
+            href="/guides/bahamas"
+            aria-label="View Bahamas guide"
           >
             <img
               src="assets/images/guide-covers/bahamas.jpg"
-              alt="Bahamas guide cover image"
+              alt="Bahamas guide cover featuring a tropical Bahamas destination"
               width="1200"
               height="1500"
               loading="lazy"
@@ -182,12 +232,12 @@
 
           <a
             class="guide-card"
-            href="guides/amalfi-coast.html"
-            aria-label="Amalfi Coast guide"
+            href="/guides/amalfi-coast"
+            aria-label="View Amalfi Coast guide"
           >
             <img
               src="assets/images/guide-covers/amalfi-coast.jpg"
-              alt="Amalfi Coast guide cover image"
+              alt="Amalfi Coast guide cover featuring a scenic Amalfi Coast view"
               width="1200"
               height="1500"
               loading="lazy"
@@ -197,12 +247,12 @@
 
           <a
             class="guide-card"
-            href="guides/costa-rica.html"
-            aria-label="Costa Rica guide"
+            href="/guides/costa-rica"
+            aria-label="View Costa Rica guide"
           >
             <img
               src="assets/images/guide-covers/costa-rica.jpg"
-              alt="Costa Rica guide cover image"
+              alt="Costa Rica guide cover featuring a Costa Rica destination scene"
               width="1200"
               height="1500"
               loading="lazy"
@@ -215,28 +265,33 @@
 
     <footer class="site-footer" role="contentinfo">
       <div class="footer-inner">
-        <a class="footer-brand" href="index.html" aria-label="JN Traveler home">
+        <a class="footer-brand" href="/" aria-label="JN Traveler home">
           <img
             src="assets/images/jnt-logo.svg"
-            alt="JN Traveler"
+            alt="JN Traveler logo"
             class="footer-logo"
+            width="144"
+            height="36"
           />
         </a>
 
         <ul class="footer-links" aria-label="Footer links">
-          <li><a href="inquiry.html">Inquire</a></li>
-          <li><a href="digital-guides.html" aria-current="page">Guides</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
+          <li><a href="/inquiry">Inquire</a></li>
+          <li><a href="/digital-guides" aria-current="page">Guides</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
         </ul>
 
         <p class="footer-meta">
           <a
             href="https://www.instagram.com/jaydenicole/?hl=en"
-            aria-label="Instagram"
-            >Instagram</a
+            aria-label="JN Traveler on Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
           >
+            Instagram
+          </a>
         </p>
 
         <p class="footer-copy">© <span>2026</span> JN Traveler</p>
@@ -246,13 +301,16 @@
           <a href="https://maykeagency.com" target="_blank" rel="noopener">
             <img
               src="assets/images/maykeLogoDark.svg"
-              alt="Mayke"
+              alt="Mayke Agency"
               class="mayke-logo"
+              width="96"
+              height="24"
             />
           </a>
         </p>
       </div>
     </footer>
+
     <script src="script.js" defer></script>
   </body>
 </html>

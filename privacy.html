@@ -2,44 +2,88 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <title>Privacy Policy | JN Traveler</title>
     <meta name="description" content="Privacy Policy for JN Traveler." />
+    <meta name="theme-color" content="#162d0d" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="JN Traveler" />
+    <link rel="canonical" href="https://www.jntraveler.com/privacy" />
+
+    <meta property="og:title" content="Privacy Policy | JN Traveler" />
+    <meta
+      property="og:description"
+      content="Read the Privacy Policy for JN Traveler."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.jntraveler.com/privacy" />
+    <meta
+      property="og:image"
+      content="https://www.jntraveler.com/assets/images/jnt-logo.svg"
+    />
+    <meta property="og:site_name" content="JN Traveler" />
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Policy",
+        "url": "https://www.jntraveler.com/privacy"
+      }
+    </script>
   </head>
 
   <body>
-    <header class="site-header">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" role="banner">
       <div class="header-inner">
-        <a class="brand" href="index.html">
+        <a class="brand" href="/" aria-label="JN Traveler home">
           <img
             src="assets/images/jnt-logo.svg"
-            alt="JN Traveler"
+            alt="JN Traveler logo"
             class="brand-logo"
+            width="180"
+            height="45"
           />
         </a>
 
-        <button class="nav-toggle" aria-label="Toggle navigation">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="site-navigation"
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="site-nav">
+        <nav
+          class="site-nav"
+          id="site-navigation"
+          aria-label="Primary navigation"
+        >
           <ul class="nav-list">
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="travel.html">Travel</a></li>
-            <li><a href="digital-guides.html">Digital Guides</a></li>
-            <li><a href="hospitality-marketing.html">Hospitality</a></li>
-            <li><a class="nav-cta" href="inquiry.html">Inquire</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/travel">Travel</a></li>
+            <li><a href="/digital-guides">Digital Guides</a></li>
+            <li><a href="/hospitality-marketing">Hospitality</a></li>
+            <li><a class="nav-cta" href="/inquiry">Inquire</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
-      <section class="policy-section">
-        <h2>Privacy Policy</h2>
+    <main id="main">
+      <section class="policy-section" aria-labelledby="privacy-policy-heading">
+        <h1 id="privacy-policy-heading">Privacy Policy</h1>
 
         <p>
           JN Traveler respects your privacy and is committed to protecting your
@@ -47,7 +91,7 @@
           collected through this website is used and protected.
         </p>
 
-        <h3>Information We Collect</h3>
+        <h2>Information We Collect</h2>
 
         <p>
           When you submit a form on this website, we may collect personal
@@ -55,7 +99,7 @@
           preferences.
         </p>
 
-        <h3>How Your Information Is Used</h3>
+        <h2>How Your Information Is Used</h2>
 
         <p>
           Information you provide may be used to respond to inquiries, plan
@@ -64,7 +108,7 @@
           Traveler.
         </p>
 
-        <h3>Email Communications</h3>
+        <h2>Email Communications</h2>
 
         <p>
           If you opt in to receive emails, you may occasionally receive updates,
@@ -72,7 +116,7 @@
           unsubscribe from these communications at any time.
         </p>
 
-        <h3>Information Protection</h3>
+        <h2>Information Protection</h2>
 
         <p>
           JN Traveler takes reasonable measures to protect personal information
@@ -80,7 +124,7 @@
           where necessary to provide services requested by the user.
         </p>
 
-        <h3>Changes to This Policy</h3>
+        <h2>Changes to This Policy</h2>
 
         <p>
           This Privacy Policy may be updated occasionally to reflect changes to
@@ -89,26 +133,35 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
       <div class="footer-inner">
-        <a class="footer-brand" href="index.html" aria-label="JN Traveler home">
+        <a class="footer-brand" href="/" aria-label="JN Traveler home">
           <img
             src="assets/images/jnt-logo.svg"
-            alt="JN Traveler"
+            alt="JN Traveler logo"
             class="footer-logo"
+            width="144"
+            height="36"
           />
         </a>
 
-        <ul class="footer-links">
-          <li><a href="inquiry.html">Inquire</a></li>
-          <li><a href="digital-guides.html">Guides</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
+        <ul class="footer-links" aria-label="Footer links">
+          <li><a href="/inquiry">Inquire</a></li>
+          <li><a href="/digital-guides">Guides</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/privacy" aria-current="page">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
         </ul>
 
         <p class="footer-meta">
-          <a href="https://www.instagram.com/jaydenicole/?hl=en">Instagram</a>
+          <a
+            href="https://www.instagram.com/jaydenicole/?hl=en"
+            aria-label="JN Traveler on Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
         </p>
 
         <p class="footer-copy">© 2026 JN Traveler</p>
@@ -118,12 +171,16 @@
           <a href="https://maykeagency.com" target="_blank" rel="noopener">
             <img
               src="assets/images/maykeLogoDark.svg"
-              alt="Mayke"
+              alt="Mayke Agency"
               class="mayke-logo"
+              width="96"
+              height="24"
             />
           </a>
         </p>
       </div>
     </footer>
+
+    <script src="script.js" defer></script>
   </body>
 </html>

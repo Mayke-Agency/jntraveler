@@ -2,14 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <title>Hospitality Marketing | JN Traveler</title>
     <meta
       name="description"
       content="Hospitality marketing inquiries for high-end hotels and brands."
     />
     <meta name="theme-color" content="#162d0d" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="JN Traveler" />
+    <link
+      rel="canonical"
+      href="https://www.jntraveler.com/hospitality-marketing"
+    />
+
+    <meta property="og:title" content="Hospitality Marketing | JN Traveler" />
+    <meta
+      property="og:description"
+      content="Hospitality marketing inquiries for high-end hotels and brands."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.jntraveler.com/hospitality-marketing"
+    />
+    <meta
+      property="og:image"
+      content="https://www.jntraveler.com/assets/images/hotel-door.png"
+    />
+    <meta property="og:site_name" content="JN Traveler" />
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Hospitality Marketing",
+        "provider": {
+          "@type": "Organization",
+          "name": "JN Traveler",
+          "url": "https://www.jntraveler.com/"
+        },
+        "serviceType": "Hospitality marketing",
+        "url": "https://www.jntraveler.com/hospitality-marketing",
+        "description": "Hospitality marketing inquiries for high-end hotels and brands."
+      }
+    </script>
   </head>
 
   <body>
@@ -17,31 +59,43 @@
 
     <header class="site-header" role="banner">
       <div class="header-inner">
-        <a class="brand" href="index.html" aria-label="JN Traveler home">
+        <a class="brand" href="/" aria-label="JN Traveler home">
           <img
             src="assets/images/jnt-logo.svg"
-            alt="JN Traveler"
+            alt="JN Traveler logo"
             class="brand-logo"
+            width="180"
+            height="45"
           />
         </a>
 
-        <button class="nav-toggle" aria-label="Toggle navigation">
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="site-navigation"
+          type="button"
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="site-nav" aria-label="Primary navigation">
+        <nav
+          class="site-nav"
+          id="site-navigation"
+          aria-label="Primary navigation"
+        >
           <ul class="nav-list">
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="travel.html">Travel</a></li>
-            <li><a href="digital-guides.html">Digital Guides</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/travel">Travel</a></li>
+            <li><a href="/digital-guides">Digital Guides</a></li>
             <li>
-              <a aria-current="page" href="hospitality-marketing.html"
-                >Hospitality</a
-              >
+              <a aria-current="page" href="/hospitality-marketing">
+                Hospitality
+              </a>
             </li>
-            <li><a class="nav-cta" href="inquiry.html">Inquire</a></li>
+            <li><a class="nav-cta" href="/inquiry">Inquire</a></li>
           </ul>
         </nav>
       </div>
@@ -49,7 +103,10 @@
 
     <main id="main">
       <!-- Full-bleed hero -->
-      <section class="bleed-section page-hero" aria-label="Hospitality hero">
+      <section
+        class="bleed-section page-hero"
+        aria-labelledby="hospitality-heading"
+      >
         <div class="bleed-media" aria-hidden="true">
           <img
             src="assets/images/hotel-door.png"
@@ -57,12 +114,13 @@
             width="1920"
             height="1080"
             loading="eager"
+            fetchpriority="high"
           />
         </div>
 
         <div class="bleed-overlay">
           <div class="bleed-content">
-            <h1>Hospitality marketing</h1>
+            <h1 id="hospitality-heading">Hospitality marketing</h1>
             <p class="subhead">
               Let us help you increase your revenue, up your occupancy rates,
               and fill your reservations.
@@ -73,7 +131,7 @@
       </section>
 
       <!-- Full-bleed: Why work together -->
-      <section class="bleed-section" aria-label="Why partner with JN Traveler">
+      <section class="bleed-section" aria-labelledby="why-partner-heading">
         <div class="bleed-media" aria-hidden="true">
           <img
             src="assets/images/hotel-room.jpeg"
@@ -86,7 +144,7 @@
 
         <div class="bleed-overlay">
           <div class="bleed-content">
-            <h2>Why Partner With us</h2>
+            <h2 id="why-partner-heading">Why Partner With us</h2>
             <p class="subhead">
               We partner with hotels and resorts to elevate visibility, drive
               bookings, and unlock revenue potential and opportunities. Our
@@ -103,7 +161,7 @@
       <section
         class="bleed-section form-section"
         id="inquire"
-        aria-label="Hospitality inquiry form"
+        aria-labelledby="hotel-brand-inquiry-heading"
       >
         <div class="bleed-media" aria-hidden="true">
           <img
@@ -117,7 +175,7 @@
 
         <div class="bleed-overlay">
           <div class="bleed-content">
-            <h2>Hotel / brand inquiry</h2>
+            <h2 id="hotel-brand-inquiry-heading">Hotel / brand inquiry</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
             <form
@@ -154,6 +212,7 @@
                     name="name"
                     type="text"
                     placeholder="First & Last"
+                    autocomplete="name"
                     required
                   />
                 </div>
@@ -165,6 +224,7 @@
                     name="email"
                     type="email"
                     placeholder="you@email.com"
+                    autocomplete="email"
                     required
                   />
                 </div>
@@ -197,6 +257,7 @@
                     name="website"
                     type="url"
                     placeholder="https://yourcompany.com"
+                    autocomplete="url"
                   />
                 </div>
               </fieldset>
@@ -279,7 +340,7 @@
                     I agree to receive occasional emails from JN Traveler
                     including travel inspiration, digital guides, and updates. I
                     can unsubscribe at any time. View the
-                    <a href="privacy.html">Privacy Policy</a>.
+                    <a href="/privacy">Privacy Policy</a>.
                   </span>
                 </label>
               </div>
@@ -297,28 +358,33 @@
 
     <footer class="site-footer" role="contentinfo">
       <div class="footer-inner">
-        <a class="footer-brand" href="index.html" aria-label="JN Traveler home">
+        <a class="footer-brand" href="/" aria-label="JN Traveler home">
           <img
             src="assets/images/jnt-logo.svg"
-            alt="JN Traveler"
+            alt="JN Traveler logo"
             class="footer-logo"
+            width="144"
+            height="36"
           />
         </a>
 
         <ul class="footer-links" aria-label="Footer links">
           <li><a href="#inquire">Inquire</a></li>
-          <li><a href="digital-guides.html">Guides</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
+          <li><a href="/digital-guides">Guides</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
         </ul>
 
         <p class="footer-meta">
           <a
             href="https://www.instagram.com/jaydenicole/?hl=en"
-            aria-label="Instagram (placeholder link)"
-            >Instagram</a
+            aria-label="JN Traveler on Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
           >
+            Instagram
+          </a>
         </p>
 
         <p class="footer-copy">© <span>2026</span> JN Traveler</p>
@@ -328,13 +394,16 @@
           <a href="https://maykeagency.com" target="_blank" rel="noopener">
             <img
               src="assets/images/maykeLogoDark.svg"
-              alt="Mayke"
+              alt="Mayke Agency"
               class="mayke-logo"
+              width="96"
+              height="24"
             />
           </a>
         </p>
       </div>
     </footer>
+
     <script src="script.js" defer></script>
   </body>
 </html>
