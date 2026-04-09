@@ -455,6 +455,11 @@ main > .hero:first-of-type .hero-overlay {
   text-align: center;
 }
 
+.hero .subhead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 main > .bleed-section:first-of-type .bleed-content {
   text-align: center;
 }
