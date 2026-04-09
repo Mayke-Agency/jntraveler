@@ -144,7 +144,7 @@
                 </li>
                 <li class="carousel-slide" data-slide="1">
                   <img
-                    src="assets/images/Carousel/cinqueTerre.webp"
+                    src="assets/images/Carousel/cinque-terre.webp"
                     alt="Colorful cliffside village and coastline in Cinque Terre overlooking the sea"
                     width="1920"
                     height="1080"
@@ -184,6 +184,83 @@
                 </li>
               </ul>
             </div>
+
+            <div class="carousel-controls" aria-label="Carousel controls">
+              <button
+                type="button"
+                class="carousel-btn carousel-btn--prev"
+                data-carousel-prev
+                aria-label="Previous slide"
+              >
+                <span aria-hidden="true">‹</span>
+              </button>
+
+              <div
+                class="carousel-dots"
+                role="tablist"
+                aria-label="Select slide"
+              >
+                <button
+                  type="button"
+                  class="carousel-dot is-active"
+                  role="tab"
+                  aria-selected="true"
+                  aria-label="Show slide 1"
+                  data-carousel-dot="0"
+                >
+                  <span class="visually-hidden">Slide 1</span>
+                </button>
+                <button
+                  type="button"
+                  class="carousel-dot"
+                  role="tab"
+                  aria-selected="false"
+                  aria-label="Show slide 2"
+                  data-carousel-dot="1"
+                >
+                  <span class="visually-hidden">Slide 2</span>
+                </button>
+                <button
+                  type="button"
+                  class="carousel-dot"
+                  role="tab"
+                  aria-selected="false"
+                  aria-label="Show slide 3"
+                  data-carousel-dot="2"
+                >
+                  <span class="visually-hidden">Slide 3</span>
+                </button>
+                <button
+                  type="button"
+                  class="carousel-dot"
+                  role="tab"
+                  aria-selected="false"
+                  aria-label="Show slide 4"
+                  data-carousel-dot="3"
+                >
+                  <span class="visually-hidden">Slide 4</span>
+                </button>
+                <button
+                  type="button"
+                  class="carousel-dot"
+                  role="tab"
+                  aria-selected="false"
+                  aria-label="Show slide 5"
+                  data-carousel-dot="4"
+                >
+                  <span class="visually-hidden">Slide 5</span>
+                </button>
+              </div>
+
+              <button
+                type="button"
+                class="carousel-btn carousel-btn--next"
+                data-carousel-next
+                aria-label="Next slide"
+              >
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -194,7 +271,7 @@
               Luxury travel, thoughtfully curated for effortless experiences
               worldwide.
             </p>
-            <div class="hero-actions">
+            <div class="hero-actions" role="group" aria-label="Hero actions">
               <a class="btn btn-primary" href="/inquiry">Inquire</a>
               <a class="btn btn-secondary" href="/digital-guides">
                 Explore Guides
@@ -205,8 +282,11 @@
       </section>
 
       <!-- ABOUT -->
-      <section class="bleed-section about-section">
-        <div class="bleed-media">
+      <section
+        class="bleed-section about-section"
+        aria-labelledby="about-heading"
+      >
+        <div class="bleed-media" aria-hidden="false">
           <img
             src="assets/images/rope-bridge.webp"
             alt="Suspension bridge stretching through a lush landscape, evoking adventure and destination discovery"
@@ -218,25 +298,68 @@
 
         <div class="bleed-overlay">
           <div class="bleed-content">
-            <h2>About</h2>
+            <h2 id="about-heading">About</h2>
             <p class="subhead">
               We are a full service hospitality marketing and travel agency with
-              20+ years of travel experience and 30+ countries visited.
+              20+ years of travel experience and 30+ countries visited. As a
+              hotel, resort or tourism board, we offer customized, fully
+              executed and managed marketing strategies focused on increasing
+              your revenue, defining your branding, and getting you the highest
+              quality guests. As a traveler, we offer easy to download digital
+              guides or fully managed bookings to make your vacation seamless.
             </p>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
       <div class="footer-inner">
-        <a class="footer-brand" href="/">
+        <a class="footer-brand" href="/" aria-label="JN Traveler home">
           <img
             src="assets/images/jnt-logo.svg"
             alt="JN Traveler logo"
             class="footer-logo"
+            width="144"
+            height="36"
           />
         </a>
+
+        <ul class="footer-links" aria-label="Footer links">
+          <li><a href="/inquiry">Inquire</a></li>
+          <li><a href="/digital-guides">Guides</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+
+        <p class="footer-meta">
+          <a
+            href="https://www.instagram.com/jayde_nicole"
+            aria-label="JN Traveler on Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+          <span aria-hidden="true"> · </span>
+          <a href="mailto:jayde.nicole@fora.travel">jayde.nicole@fora.travel</a>
+        </p>
+
+        <p class="footer-copy">© <span>2026</span> JN Traveler</p>
+
+        <p class="footer-credit">
+          Website design by
+          <a href="https://maykeagency.com" target="_blank" rel="noopener">
+            <img
+              src="assets/images/maykeLogoDark.svg"
+              alt="Mayke Agency"
+              class="mayke-logo"
+              width="96"
+              height="24"
+            />
+          </a>
+        </p>
       </div>
     </footer>
 
